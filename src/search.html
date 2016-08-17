@@ -1,0 +1,26 @@
+<div class="jumbotron">
+	<h1>Search</h1>
+</div>
+	
+<form ng-submit="search.movieSearch(search.stuff)">
+<div class="input-group input-group-lg">
+		<input type="text" class="form-control" placeholder="Enter a Movie" ng-model="search.stuff">
+		<span ng-click="search.movieSearch(search.stuff)" class="input-group-addon" type="btn">Go!</span>
+	</div>
+	<br>
+</form>
+	<div class="row">
+		<div ng-repeat="movie in search.results.Search | limitTo : 6" class="col-xs-4" alt="No image available">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					{{movie.Title}}
+				</div>
+				<div class="panel-body">
+					<div  class="text-center"><img ng-src="{{movie.Poster}}" width="120px"></div>
+					<p class="text-center">Filmed in {{movie.Year}}</p>
+					<a ui-sref="details({movietag: movie.Title})">Click here to view detail...</a>
+					
+				</div>
+			</div>
+		</div>
+	</div>
